@@ -13,6 +13,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -116,7 +117,7 @@ public class TableToBingosync extends JFrame {
 	 */
 	public TableToBingosync() {
 		// Set up JFrame properties
-		setTitle("TableToBingosync - v1.0.0 - Zach K"); // Version follows Semantic Versioning
+		setTitle("TableToBingosync - v1.0.1 - Zach K"); // Version follows Semantic Versioning
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		setMinimumSize(new Dimension(600, 400));
@@ -210,12 +211,22 @@ public class TableToBingosync extends JFrame {
 		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Note that the conversion process to JSON does not use the google simple-json.jar file; this is intentional
-				StringBuilder output = new StringBuilder(1250); // the StringBuilder has a capacity of 1250, which is usually enough to hold the entire table
+				StringBuilder output = new StringBuilder(1250); // the StringBuilder has a capacity of 1250, which is usually enough to hold the entire output table
 				output.append("[\n");
-				String[] rowedTable = txtpnInput.getText().split("\\n+|;");
+				
+				String input = txtpnInput.getText();
+				if (input.isEmpty()) {
+					txtpnOutput.setText("");
+					return;
+				}
+				String[] rowedTable = txtpnInput.getText().trim().split("\\n+|\\r+|;");
 				String[][] table = new String[rowedTable.length][];
-				for (int row = 0; row < table.length; row++) {
-					table[row] = rowedTable[row].trim().split("\\t+|,");
+				int i = 0;
+				for (String text : rowedTable) {
+					if (!text.trim().isEmpty()) {
+						table[i] = text.trim().split("\\t+|,");
+						i++;
+					}
 				}
 				for (int row = 0; row < 5; row++) {
 					for (int col = 0; col < 5; col++) {
