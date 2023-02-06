@@ -1,4 +1,7 @@
 # Table To Bingosync
+This project is old, decrepit, and uses Java. Ew.
+[Use this userscript instead](https://gist.github.com/xMGZx/81e866170ac4ba4f1d551c440cdb87ea) which will allow you to paste directly into the custom box.
+
 TableToBingosync is a tool for turning ordinary tables into [Bingosync](https://bingosync.com/) boards quickly and easily. The code and the program are overdocumented for their size, but hopefully it helps you get an understanding of the program for use or modification.
 
 ## GUI:
