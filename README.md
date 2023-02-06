@@ -19,7 +19,7 @@ To copy a table into Bingosync, follow these steps:<br>
 5. Set up other settings on Bingosync and then click "Make Room". If everything goes well, you should see the table you originally put into the program on the website!
 
 ### Gif
-Here is a gif showing all of these steps with a table from engin33r's [Minecraft Bingo](http://engin33r.net/bingo):<br>
+Here is a gif showing all of these steps with a table from engin33r's Minecraft Bingo:<br>
 ![Steps.gif](resources/Steps.gif)
 
 <br>
